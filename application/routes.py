@@ -4,6 +4,8 @@ from flask import request, jsonify
 from models import Users, Team
 from application.forms import LoginForm
 from flask import render_template, flash, redirect, url_for
+
+# base URL
 @app.route('/')
 @app.route('/index')
 def index():
