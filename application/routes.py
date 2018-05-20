@@ -36,8 +36,6 @@ def login():
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.json
-    print type(data)
-    print data
     username = data.get("username")
     email = data.get("email")
     team = data.get("team")
@@ -70,8 +68,6 @@ def modify_user(user_id):
 @app.route('/add_team', methods=['POST'])
 def add_team():
     data = request.json
-    print type(data)
-    print data
     teamname = data.get("team")
     dict= {"username": teamname}
     t = Team(team=teamname)
@@ -96,3 +92,11 @@ def modify_team(team_id):
     record.team="Quality Eng"
     db.session.commit()
     return (jsonify({'Update record for Team_ID': team_id}))
+
+
+
+"""
+1. PUT calls will take data again to update
+2. DB schema fix 
+3. Add/remove member to team apis will be different
+"""
